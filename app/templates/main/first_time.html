@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<style>
+    @media screen and (min-width: 300px) {
+        div.jumbotron {
+            background: url('{% static "images/family.jpg" %}');
+            min-height: 300px;
+            border-radius: 5px;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        div.jumbotron {
+            background: url('{% static "images/family.jpg" %}');
+            min-height: 500px;
+            border-radius: 5px;
+            background-size: cover;
+            background-position-y: 20%;
+        }
+
+        #welcome-title {
+            top: -130px;
+            background-color: #F2F2F3;
+            padding: 10px 40px;
+            width: fit-content;
+            margin: auto;
+            margin-top: -150px;
+            margin-bottom: 100px;
+            border-radius: 5px;
+            width: fit-content;
+        }
+        div.jumbotron+div#welcome-title div {
+            max-width: 650px;
+        }
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+
+<div class="container mb-3">
+    <div class="jumbotron"></div>
+    
+    <div id='welcome-title'>
+        <h1 class="my-3">Welcome to the family!</h1>
+        <div class="">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna
+            aliqua. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem.
+        </div>
+        <a href="{% url 'plan_visit' %}">
+            <button class="btn btn-purple mt-4 px-md-5">Plan a Visit</button>
+        </a>
+    </div>
+
+</div>
+<div class="container-fluid bg-white py-5">
+    <div class="container">
+        <h3 class="heading text-center">F.A.Q</h3>
+
+    </div>
+</div>
+
+{% endblock content %}

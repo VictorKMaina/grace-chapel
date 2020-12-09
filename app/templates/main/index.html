@@ -3,49 +3,94 @@
 {% block styles %}
 {{ block.super }}
 <style>
-    div.jumbotron {
-        min-height: 370px;
-        margin-top: 30px;
-        padding-left: 0;
-        padding-right: 0;
+    @media only screen and (min-width: 300px) {
+        div.jumbotron {
+            min-height: 370px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        div#sermon-banner {
+            background-color: #797A9E;
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        div.jumbotron div.row {
+            min-height: 370px;
+        }
+
+        div#show-image {
+            background: url("https://res.cloudinary.com/victormainak/image/upload/v1607534656/homepage_jumbotron_i3tk6y.jpg");
+            background-size: cover;
+            background-position: top;
+            min-height: 280px;
+            border-radius: 5px;
+        }
+
+        #sermon-banner h2 {
+            color: #D2D3F9;
+        }
+
+        div#first-time {
+            margin-top: 35px;
+            text-align: justify;
+            max-width: 850px;
+        }
     }
-    div#sermon-banner {
-        background-color: #797A9E;
-        min-width: 529px;
-        z-index: 5;
-        border-radius: 3px;
-    }
-    div.jumbotron div.row {
-        min-height: 370px;
-    }
-    div#show-image {
-        background: url("{% static 'images/homepage_jumbotron.jpg' %}");
-        background-size: cover;
-        border-radius: 5px;
-    }
-    #sermon-banner h2 {
-        color: #D2D3F9;
+    @media only screen and (min-width: 768px){
+        div.jumbotron {
+            margin-top: 30px;
+        }
+
+        div#show-image {
+            background-position: center;
+            min-height: 400px;
+        }
+
+        div#sermon-banner {
+            min-width: 500px;
+            background-color: #797A9E;
+            width: 100%;
+            z-index: 5;
+            border-radius: 3px;
+        }
     }
 </style>
 {% endblock styles %}
 
 {% block content %}
-<div class="container jumbotron p-0 bg-transparent">
+<div class="container jumbotron pt-0 pb-5 mb-5 bg-transparent">
     <div class="row mx-0 mh-100">
-        <div class="pl-0 col-md-4 d-flex flex-column justify-content-center overflow-visible">
+        <div class="order-2 order-md-1 col-md-4 d-flex flex-column justify-content-center overflow-visible">
             <h1>This is home.</h1>
             <h3>No matter who you are, you can find a place in God’s family.</h3>
-            <div id='sermon-banner' class="mt-5 d-flex align-items-center justify-content-between py-2 px-4">
+            <div id='sermon-banner' class="mt-5 d-md-flex align-items-center justify-content-between py-3 py-md-2 px-4">
                 <div>
-                    <h2 class="m-0">Latest Sermon</h2>
-                    <p class="m-0 text-white">Pharetra vel turpis nunc</p>
+                    <h2 class="m-md-0">Latest Sermon</h2>
+                    <p class="m-md-0 text-white">Pharetra vel turpis nunc</p>
                 </div>
                 <div>
-                    <button class="btn btn-white">Watch Online</button>
+                    <button class="btn btn-white mx-auto">Watch Online</button>
                 </div>
             </div>
         </div>
-        <div class="pr-0 col-md-8" id='show-image'></div>
+        <div class="col-md-8 mb-5 mb-md-0 order-1 order-md-2">
+            <div id='show-image'></div>
+        </div>
+    </div>
+</div>
+<div class=" bg-white mt-5 py-5">
+    <div class="container">
+        <div class="heading">If you’re new here...</div>
+        <div class="" id="first-time">First of all, welcome to Grace Chapel! We would love to meet you and get to know
+            you better. We understand that visiting
+            a new church can be stressful and unpredictable. So we’ve outlined every thing you need to know about you
+            first visit.
+            <a href="{% url 'first_time' %}" class="text-purple">Click here</a> to learn more.</div>
+        <a href="{% url 'first_time' %}">
+            <button class="btn btn-outline-purple mt-5">Learn More</button>
+        </a>
     </div>
 </div>
 {% endblock content %}
