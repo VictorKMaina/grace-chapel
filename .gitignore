@@ -150,4 +150,7 @@ dmypy.json
 # profiling data
 .prof
 
+# Custom
+run-push
+heroku-set
 # End of https://www.toptal.com/developers/gitignore/api/django
