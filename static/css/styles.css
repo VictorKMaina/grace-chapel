@@ -90,6 +90,13 @@
     font-family: "Averia Serif Libre", serif;
     font-weight: 700;
   }
+  /* form.form-group {
+    
+  } */
+
+  input.form-control[type='text'], input.form-control[type='email'] {
+    margin-bottom: 15px;
+  }
 }
 @media only screen and (min-width: 768px) {
   .btn {

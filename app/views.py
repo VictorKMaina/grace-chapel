@@ -7,11 +7,12 @@ def index(request):
 
 # View for new people
 def first_time(request):
-    ctx = {}
+    ctx = {"title":"I'm New"}
     return render(request, 'main/first_time.html', ctx)
 
 def plan_visit(request):
-    ctx = {}
+    
+    ctx = {"title": "Plan a visit"}
     return render(request, 'visitor/new_visit.html', ctx)
 
 # Authorization Views
@@ -22,7 +23,3 @@ def signup(request):
 def login(request):
     ctx = {}
     return render(request, 'visitor/login.html', ctx)
-
-def plan_visit(request):
-    ctx = {}
-    return render(request, 'visitor/new_visit.html', ctx)
