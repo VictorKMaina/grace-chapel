@@ -165,4 +165,5 @@ REST_FRAMEWORK = {
 }
 
 # Custom user model settings
+AUTH_USER_MODEL = 'app.Member'
 # AUTH_USER_MODEL = 'app.User'
