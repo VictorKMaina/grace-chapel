@@ -153,4 +153,5 @@ dmypy.json
 # Custom
 run-push
 heroku-set
+push
 # End of https://www.toptal.com/developers/gitignore/api/django
