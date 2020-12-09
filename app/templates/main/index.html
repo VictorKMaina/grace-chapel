@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<style>
+    div.jumbotron {
+        min-height: 370px;
+        margin-top: 30px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    div#sermon-banner {
+        background-color: #797A9E;
+        min-width: 529px;
+        z-index: 5;
+        border-radius: 3px;
+    }
+    div.jumbotron div.row {
+        min-height: 370px;
+    }
+    div#show-image {
+        background: url("{% static 'images/homepage_jumbotron.jpg' %}");
+        background-size: cover;
+        border-radius: 5px;
+    }
+    #sermon-banner h2 {
+        color: #D2D3F9;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="container jumbotron p-0 bg-transparent">
+    <div class="row mx-0 mh-100">
+        <div class="pl-0 col-md-4 d-flex flex-column justify-content-center overflow-visible">
+            <h1>This is home.</h1>
+            <h3>No matter who you are, you can find a place in God’s family.</h3>
+            <div id='sermon-banner' class="mt-5 d-flex align-items-center justify-content-between py-2 px-4">
+                <div>
+                    <h2 class="m-0">Latest Sermon</h2>
+                    <p class="m-0 text-white">Pharetra vel turpis nunc</p>
+                </div>
+                <div>
+                    <button class="btn btn-white">Watch Online</button>
+                </div>
+            </div>
+        </div>
+        <div class="pr-0 col-md-8" id='show-image'></div>
+    </div>
+</div>
+{% endblock content %}

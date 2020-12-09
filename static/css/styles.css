@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Poppins:wght@300;400;500;700&display=swap');
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-color: #F2F2F3;
+}
+
+nav.navbar {
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(187, 189, 246, 0.5);
+}
+
+.navbar-nav {
+    font-weight: 500;
+}
+.navbar-nav .nav-item .nav-link {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container {
+    max-width: 1105px;
+}
+
+.btn {
+    border-radius: 2px;
+}
+
+.btn-purple {
+    font-weight: 500;
+    background-color: #9893DA;
+    color: white;
+}
+.btn-purple:hover {
+    background-color: #797A9E;
+    color: white;
+}
+
+.btn-white {
+    font-weight: 500;
+    background-color: white;
+    color: #797A9E;
+}
+.btn-white:hover {
+    background-color: #e4e4e4;
+    color: #797A9E;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-family: 'Averia Serif Libre', serif;
+}
+h2 {
+    font-size: 1.8rem;
+    font-family: 'Averia Serif Libre', serif;
+}
+h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
