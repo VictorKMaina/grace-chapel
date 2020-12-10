@@ -12,15 +12,26 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about/">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/engage/">Engage</a>
-      </li>
+      {% if user.is_authenticated == False %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'first_time' %}">I'm New</a>
       </li>
+      {% endif %}
+      <li class="nav-item">
+        <a class="nav-link disabled" href="">Engage</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+      </li>
+      {% endif %}
     </ul>
     <a href="{% url 'watch' %}" class="nav-link pr-md-0">
         <button class='btn btn-purple ml-md-5 ml-md-5'>Watch Online</button>

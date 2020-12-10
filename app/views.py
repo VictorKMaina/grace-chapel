@@ -1,13 +1,18 @@
-from django.contrib.auth import get_user_model
 from django.shortcuts import Http404, redirect, render
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import get_user_model, login, logout
 
 from .models import *
+from .form import *
 from .email import send_visitor_welcome
 
 User = get_user_model()
 
 
 def index(request):
+    user = request.user
+    print(user)
+
     ctx = {}
     return render(request, 'main/index.html', ctx)
 
@@ -61,9 +66,39 @@ def watch(request):
 
 # Authorization Views
 def signup(request):
-    ctx={}
-    return render(request, 'visitor/signup.html', ctx)
+    if request.method == 'POST':
+        form = SignupForm(data = request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.filter(username = form.data.get('username')).first()
+            user.set_password(form.data.get('password'))
+            user.is_active = True
+            user.save()
+            return redirect('/auth/login/')
+    else:
+        form = SignupForm()
+    return render(request, 'auth/signup.html', {'form': form})
 
-def login(request):
-    ctx={}
-    return render(request, 'visitor/login.html', ctx)
+
+def log_in(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = User.objects.filter(username = form.data.get('username')).first()
+            if user is not None or user.check_password(form.data.get('password')):
+                login(request, user)
+                return redirect('/')
+
+        else:
+            error = "Invalid username or password. Please try again."
+            ctx = {'form': form, "error":error}
+            form = AuthenticationForm()
+            return render(request, 'auth/login.html', ctx)
+
+    form = AuthenticationForm()
+    ctx = {'form': form}
+    return render(request, 'auth/login.html', ctx)
+
+def log_out(request):
+    logout(request)
+    return redirect('/')

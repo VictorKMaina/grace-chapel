@@ -1,0 +1,46 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>Grace Chapel | {{title}}</title>
+    {% else %}
+    <title>Grace Chapel | Authentication</title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        @media screen and (min-width: 300px) {
+            div.container {
+                max-width: 500px;
+                border: 1px solid rgb(215, 215, 215);
+                padding: 30px;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {% endblock styles %}
+</head>
+
+<body>
+    <div class='container mt-5'>
+        <div class="d-flex justify-content-center">
+            <img src="{% static 'images/logo.svg' %}" alt="">
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% block scripts %}
+    {% bootstrap_javascript jquery='full' %}
+    <script src='{% static "js/scripts.js" %}'></script>
+    {% endblock scripts %}
+</body>
+
+</html>

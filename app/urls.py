@@ -9,4 +9,7 @@ urlpatterns = [
     path('plan-a-visit/success/', views.visit_success, name='visit_success '),
     path('sermons/', views.sermons, name='sermons'),
     path('watch/', views.watch, name='watch'),
+    path('auth/login/', views.log_in, name="login"),
+    path('auth/signup/', views.signup, name="signup"),
+    path('auth/logout/', views.log_out, name="logout"),
 ]
