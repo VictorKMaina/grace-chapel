@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+{% endblock styles %}
+
+{% block content %}
+
+<div class="container">
+    <div class="mx-auto mt-5 pt-0 pt-md-5 " style="max-width: 400px;">
+        <h1 class="heading">We're looking forward to seeing you.</h1>
+        <div>Please check your email address for more details about our your visit.</div>
+        <hr class="mt-5 mb-4">
+        <a href="{% url 'home' %}">
+            <button class="w-100 btn btn-purple">Home</button>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}
