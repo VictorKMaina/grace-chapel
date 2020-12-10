@@ -1,8 +1,25 @@
 <!-- Include in sermon page -->
 {% load static %}
-<div class="container my-5 p-0 mx-0">
-    <h2 class="">Recommended</h2>
-    <div class="row" id="recommended-videos">
-        <div class="col-md-3" style="background: url('{% static 'images/recommended-1.jpg' %}'); background-size: cover;"></div>
+<div class="container my-5">
+    <h2 class="mb-4">Recommended</h2>
+    <div class="row  p-0" id="recommended-videos">
+        {% comment %} {% for i in 1234|make_list  %}
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class='thumbnail' style="background: url('{% static 'images/recommended-1.jpg' %}'); background-size: cover;"></div>
+        </div>
+        {% endfor %} {% endcomment %}
+
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class='thumbnail' style="background: url('{% static 'images/recommended-1.jpg' %}'); background-size: cover;"></div>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class='thumbnail' style="background: url('{% static 'images/recommended-2.jpg' %}'); background-size: cover;"></div>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class='thumbnail' style="background: url('{% static 'images/recommended-3.jpg' %}'); background-size: cover;"></div>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class='thumbnail' style="background: url('{% static 'images/recommended-4.jpg' %}'); background-size: cover;"></div>
+        </div>
     </div>
 </div>
