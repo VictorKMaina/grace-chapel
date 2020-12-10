@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<style>
+    div#main-video {
+        min-width: 100%;
+        height: auto;
+        padding: 0%;
+        overflow: hidden;
+        background-color: #dddddd;
+        border-radius: 5px;
+    }
+    div#main-video iframe {
+        min-width: 100%;
+        min-height: 510px;
+    }
+    h3 {
+        font-size: 1.7rem;
+    }
+
+    div#recommended-videos div.col-md-3 {
+        min-height: 150px;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+  <h2 class="font-weight-bold mt-5 mb-3">Watch Online</h2>
+  <div id="main-video">
+    <iframe src="https://www.youtube.com/embed/GZ5PVa9LiI0" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+  </div>
+  <div class="mt-4 d-md-flex justify-content-between">
+      <div>
+        <h3 id="sermon-title" class="">Suspendisse Faucibus Interdum Posuere Lorem</h3>
+        <p class="text-muted font-weight-bold">Sed Adipiscing</p>
+      </div>
+      <div>
+          <p class="small font-weight-bold text-muted">Nov 3, 2020</p>
+      </div>
+  </div>
+</div>
+
+<div >
+{% include "sermon/recommended.html" %}
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

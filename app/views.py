@@ -49,6 +49,16 @@ def visit_success(request):
     ctx = {}
     return render(request, "visitor/success.html", ctx)
 
+# Sermon Engine
+def sermons(request):
+    ctx= {}
+    return render(request, "sermon/search_page.html", ctx)
+
+
+def watch(request):
+    ctx = {}
+    return render(request, "sermon/video_sermon.html", ctx)
+
 # Authorization Views
 def signup(request):
     ctx={}
