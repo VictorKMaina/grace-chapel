@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import Http404, redirect, render
 
 from .models import *
+from .email import send_visitor_welcome
 
 User = get_user_model()
 
@@ -30,6 +31,10 @@ def plan_visit(request):
 
         if len(first_name) > 0 and len(last_name) > 0 and len(email) > 0:
             new_visitor = Visitor.objects.create(first_name=data.get('first_name'), last_name=data.get('last_name'), email=data.get('email'), adults_count=data.get('adults'), children_count=data.get('children'))
+
+            send_visitor_welcome(request, new_visitor)
+
+            
 
             return redirect("success/")
         else:
